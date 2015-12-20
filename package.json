@@ -12,10 +12,11 @@
     "live-server": "^0.8.2",
     "lodash": "^3.10.1",
     "materialize-css": "^0.97.1",
-    "protractor": "^2.5.1"
+    "protractor": "^3.0.0",
+    "protractor-jasmine2-screenshot-reporter": "^0.1.7"
   },
   "scripts": {
-    "install": "node ./node_modules/.bin/webdriver-manager update",
+    "postinstall": "tsd install",
     "server": "node ./server.js",
     "test": "node ./node_modules/.bin/protractor protractor.conf.js"
   }

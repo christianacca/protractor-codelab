@@ -1,5 +1,7 @@
 // See https://github.com/angular/protractor/blob/master/docs/referenceConf.js
 
+var HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
+
 exports.config = {
   // Boolean. If true, Protractor will connect directly to the browser Drivers
   // at the locations specified by chromeDriver and firefoxPath. Only Chrome
@@ -8,7 +10,7 @@ exports.config = {
 
   // Spec patterns are relative to the location of this config.
   specs: [
-    'spec/*spec.js'
+    'build/test/js/*spec.js'
   ],
 
   capabilities: {
@@ -28,5 +30,16 @@ exports.config = {
 
   jasmineNodeOpts: {
     showColors: true
-  }
+  },
+  
+  onPrepare: function() {
+      jasmine.getEnv().addReporter(
+        new HtmlScreenshotReporter({
+          dest: './build/test/reports/',
+          filename: 'e2e.html',
+          ignoreSkippedSpecs: true
+        })
+      );
+   }
+
 };
