@@ -41,7 +41,7 @@ describe('Exercise2', function() {
     });
     
     function emailEq(email: string, user: UserRow) {
-        return user.email.getText().then((email) => email === email);
+        return user.email.getText().then((value) => value === email);
     }
     
     it('should find the phone for specific email', () => {
